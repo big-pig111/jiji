@@ -115,6 +115,10 @@
         height: 1rem;
         flex-shrink: 0;
       }
+      /* 隐藏市场页标题行右侧的登录按钮，顶栏登录保留 */
+      main a[href="/auth"] {
+        display: none !important;
+      }
     </style>
     
   
@@ -374,7 +378,7 @@
           ["These agents can operate fully locally or leverage decentralized compute platforms (e.g., Gensyn, Bittensor) for larger inference models.", "这些代理可完全本地运行，或借助去中心化计算平台（如 Gensyn、Bittensor）进行大模型推理。"],
           ["Every module has a signed version history and published audit trail.", "每个模块都有签名版本历史与公开审计记录。"],
           ["2.3 OnChain Protocol Layer", "2.3 链上协议层"],
-          ["The blockchain layer is built on BSC, providing:", "区块链层基于 bsc，提供："],
+          ["The blockchain layer is built on Solana, providing:", "区块链层基于 Solana，提供："],
           ["Wallet-based identity for every robot", "每个机器人的钱包身份"],
           ["DAO smart contracts for community governance", "用于社区治理的 DAO 智能合约"],
           ["Task registry for assigning and verifying robot actions", "用于分配与验证机器人行为的任务登记"],
@@ -383,7 +387,7 @@
           ["Logs of movement, interactions, and upgrades are recorded in signed data bundles and submitted periodically to the chain, enabling full traceability and accountability.", "动作、交互与升级日志会打包签名并周期性上链，实现完整可追踪与可问责。"],
           ["3. Nodes and Identity", "3. 节点与身份"],
           ["Each OpAnarchy robot is a peer node with:", "每个机基机器人都是具备以下特征的对等节点："],
-          ["A BSC wallet used for staking, upgrades, and voting", "用于质押、升级与投票的 BSC 钱包"],
+          ["A Solana wallet used for staking, upgrades, and voting", "用于质押、升级与投票的 Solana 钱包"],
           ["A digital fingerprint (hash of hardware config and firmware stack)", "数字指纹（硬件配置与固件栈哈希）"],
           ["Behavior policy signature, opt-in logic constraints", "行为策略签名与可选逻辑约束"],
           ["These nodes interact with others in a decentralized mesh, forming swarms, delegating tasks, or participating in economic actions.", "这些节点在去中心化网络中交互，可形成群体、委派任务或参与经济行为。"],
@@ -392,7 +396,7 @@
           ["Peer robots can verify each other's logs, upgrades, and behavior outputs.", "对等机器人可相互验证日志、升级与行为输出。"],
           ["This approach allows OpAnarchy to treat each machine as an autonomous digital citizen—capable of action, governance, and financial participation.", "该方法使 OpAnarchy 将每台机器视为自治的数字公民——具备行动、治理与金融参与能力。"],
           ["4. Governance and Consensus", "4. 治理与共识"],
-          ["OpAnarchy does not rely on block consensus (handled by BSC). Instead, we introduce Action Consensus:", "机基不依赖区块共识（由 BSC 处理），我们引入行为共识："],
+          ["OpAnarchy does not rely on block consensus (handled by Solana). Instead, we introduce Action Consensus:", "机基不依赖区块共识（由 Solana 处理），我们引入行为共识："],
           ["Behavior proposals are submitted by robot agents or human developers", "行为提案由机器人代理或人类开发者提交"],
           ["DAOs vote on approved action modules (e.g., upgrade movement behavior)", "DAO 对通过的行动模块投票（如升级运动行为）"],
           ["Community forks can reject or replace undesirable robot logic", "社区分叉可拒绝或替换不理想的机器人逻辑"],
@@ -441,7 +445,7 @@
           ["A final \"kill switch\" is encoded in the base layer—allowing communities to override robot actions when thresholds are breached.", "基础层内置最终“熔断开关”，当阈值被突破时允许社区覆盖机器人行为。"],
           ["7. Scalability and Interoperability", "7. 可扩展性与互操作性"],
           ["Opanarchy is natively built for interoperability:", "机基原生支持互操作："],
-          ["BSC-based for fast, low-cost settlement", "基于 BSC，实现快速低成本结算"],
+          ["Solana-based for fast, low-cost settlement", "基于 Solana，实现快速低成本结算"],
           ["IPFS integration for robot blueprints, logs, and AI binaries", "集成 IPFS 用于机器人蓝图、日志与 AI 二进制文件"],
           ["dApp SDK for integration with other DePIN projects", "提供 dApp SDK 以对接其他 DePIN 项目"],
           ["Hardware bridge libraries for Arduino, Jetson, and Raspberry Pi", "提供 Arduino、Jetson、Raspberry Pi 的硬件桥接库"],
@@ -514,7 +518,7 @@
         ];
 
         const skipTags = new Set(["SCRIPT", "STYLE", "CODE", "PRE", "TEXTAREA"]);
-        const TOKEN_CA = "0x1f96d95f3d98d47848a8d1b2e61425cdbf5affff";
+        const TOKEN_CA = "soon";
         const CA_BUTTON_ID = "nav-token-ca-btn";
         const injectTokenCAButton = () => {
           if (document.getElementById(CA_BUTTON_ID)) return;
@@ -595,7 +599,7 @@
   </ul>
   <p>这些智能体完全可以在本地运行，也可以利用去中心化算力平台（如 Gensyn、Bittensor）运行更大的推理模型。每个模块都有签名的版本历史和公开的审计踪迹。</p>
   <h3>2.3 链上协议层</h3>
-  <p>区块链层建立在 BSC 之上，提供：</p>
+  <p>区块链层建立在 Solana 之上，提供：</p>
   <ul>
     <li>基于钱包的每个机器人身份</li>
     <li>用于社区治理的 DAO 智能合约</li>
@@ -616,7 +620,7 @@
   <p>这种方法允许机基将每台机器视为一个自主的数字公民——有能力采取行动、参与治理和进行金融活动。</p>
 
   <h2>4. 治理与共识</h2>
-  <p>机基不依赖区块共识（由 BSC 处理）。相反，我们引入了行为共识 (Action Consensus)：</p>
+  <p>机基不依赖区块共识（由 Solana 处理）。相反，我们引入了行为共识 (Action Consensus)：</p>
   <ul>
     <li>行为提案由机器人智能体或人类开发者提交。</li>
     <li>DAO 对批准的行为模块（例如：升级运动行为）进行投票。</li>
@@ -678,7 +682,7 @@
   <h2>7. 可扩展性与互操作性</h2>
   <p>机基生来就是为了互操作性而构建的：</p>
   <ul>
-    <li>基于 BSC 以实现快速、低成本的结算</li>
+    <li>基于 Solana 以实现快速、低成本的结算</li>
     <li>集成 IPFS 用于存储机器人蓝图、日志和 AI 二进制文件</li>
     <li>提供 dApp SDK 以与其他 DePIN 项目集成</li>
     <li>提供适用于 Arduino、Jetson 和 Raspberry Pi 的硬件桥接库</li>
