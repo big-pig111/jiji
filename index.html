@@ -1,0 +1,814 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BSC 机基 · BSC 人形机器人 · 开放机器人经济</title>
+    <meta name="description" content="BSC 机基 · BSC 开放机器人经济">
+    <meta name="author" content="Lovable">
+
+    
+    
+    
+    
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@lovable_dev">
+    <meta name="twitter:image" content="static/picture/social-1767633496481-Black%20and%20White%20Minimalist%20Monoline%20Illustrated%20Modern%20Sketch%20AI%20Robot%20Logo.png">
+    
+    <link rel="icon" href="static/picture/opanarchy-logo.jpg" type="image/jpeg">
+    <style>
+      @keyframes pulse-subtle {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
+      }
+      .animate-pulse-subtle {
+        animation: pulse-subtle 3s infinite ease-in-out;
+      }
+      /* 白皮书论文格式：小标题放大、重点突出，段落与空行规范 */
+      .paper-doc {
+        max-width: 42em;
+        margin: 0 auto;
+        padding: 2em 1.5em;
+        line-height: 1.85;
+        font-size: 1rem;
+        color: inherit;
+      }
+      .paper-doc h1 {
+        font-size: 1.75rem;
+        font-weight: 700;
+        margin: 0 0 0.75em 0;
+        padding-bottom: 0.35em;
+        border-bottom: 1px solid rgba(128,128,128,0.3);
+      }
+      .paper-doc h2 {
+        font-size: 1.38rem;
+        font-weight: 700;
+        margin: 1.75em 0 0.5em 0;
+        color: inherit;
+      }
+      .paper-doc h3 {
+        font-size: 1.15rem;
+        font-weight: 700;
+        margin: 1.25em 0 0.4em 0;
+        color: inherit;
+      }
+      .paper-doc p {
+        margin: 0 0 1em 0;
+        text-indent: 2em;
+      }
+      .paper-doc p:last-child {
+        margin-bottom: 0;
+      }
+      .paper-doc ul {
+        margin: 0.5em 0 1em 2em;
+        padding-left: 0.5em;
+      }
+      .paper-doc li {
+        margin-bottom: 0.4em;
+      }
+      .paper-doc h2 + p,
+      .paper-doc h3 + p {
+        margin-top: 0;
+      }
+      .paper-doc h1 + p,
+      .paper-doc h2 + p,
+      .paper-doc h3 + p {
+        text-indent: 0;
+      }
+      /* 顶栏代币 CA 按钮 - 精致样式 */
+      #nav-token-ca-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: hsl(43, 96%, 40%);
+        background: linear-gradient(135deg, hsl(43 96% 56% / 0.12) 0%, hsl(43 96% 56% / 0.06) 100%);
+        border: 1px solid hsl(43, 96%, 56% / 0.35);
+        border-radius: 9999px;
+        box-shadow: 0 1px 2px hsl(43 96% 56% / 0.1), inset 0 1px 0 hsl(43 96% 56% / 0.08);
+        cursor: pointer;
+        transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+      }
+      #nav-token-ca-btn:hover {
+        transform: translateY(-1px);
+        border-color: hsl(43, 96%, 56% / 0.5);
+        background: linear-gradient(135deg, hsl(43 96% 56% / 0.18) 0%, hsl(43 96% 56% / 0.1) 100%);
+        box-shadow: 0 4px 12px hsl(43 96% 56% / 0.2), inset 0 1px 0 hsl(43 96% 56% / 0.12);
+      }
+      #nav-token-ca-btn:active {
+        transform: translateY(0);
+        box-shadow: 0 1px 3px hsl(43 96% 56% / 0.15);
+      }
+      #nav-token-ca-btn:disabled {
+        cursor: default;
+        color: hsl(142, 76%, 36%);
+        border-color: hsl(142, 76%, 56% / 0.4);
+        background: linear-gradient(135deg, hsl(142 76% 56% / 0.12) 0%, hsl(142 76% 56% / 0.06) 100%);
+      }
+      #nav-token-ca-btn .nav-ca-icon {
+        width: 1rem;
+        height: 1rem;
+        flex-shrink: 0;
+      }
+    </style>
+    
+  
+  
+  
+  
+  <meta name="twitter:title" content="BSC 机基 · BSC 开放机器人经济">
+  
+  <meta name="twitter:description" content="BSC 机基 · BSC 开放机器人经济">
+  <script type="module" src="static/js/index-BWu8mnHF.js?v=4"></script>
+  <link rel="stylesheet" href="static/css/index-CBVlHoNl.css?v=4">
+</head>
+
+  <body>
+    <div id="root"></div>
+    <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
+    
+    <script>
+      (function () {
+        const replacements = [
+          ["Home", "首页"],
+          ["HOME", "首页"],
+          ["Marketplace", "市场"],
+          ["MARKETPLACE", "市场"],
+          ["Forum", "论坛"],
+          ["FORUM", "论坛"],
+          ["Community", "社区"],
+          ["COMMUNITY", "社区"],
+          ["About", "关于"],
+          ["ABOUT", "关于"],
+          ["Contact", "联系"],
+          ["CONTACT", "联系"],
+          ["Blog", "博客"],
+          ["BLOG", "博客"],
+          ["Whitepaper", "白皮书"],
+          ["WHITEPAPER", "白皮书"],
+          ["Roadmap", "路线图"],
+          ["ROADMAP", "路线图"],
+          ["Tokenomics", "代币经济"],
+          ["TOKENOMICS", "代币经济"],
+          ["Governance", "治理"],
+          ["GOVERNANCE", "治理"],
+          ["FAQ", "常见问题"],
+          ["FAQS", "常见问题"],
+          ["Launch App", "进入应用"],
+          ["LAUNCH APP", "进入应用"],
+          ["Connect Wallet", "连接钱包"],
+          ["CONNECT WALLET", "连接钱包"],
+          ["Get Started", "开始使用"],
+          ["GET STARTED", "开始使用"],
+          ["Learn More", "了解更多"],
+          ["LEARN MORE", "了解更多"],
+          ["Getting Started", "快速开始"],
+          ["Overview", "概览"],
+          ["Introduction", "介绍"],
+          ["API Reference", "API 参考"],
+          ["Reference", "参考"],
+          ["Guides", "指南"],
+          ["Guide", "指南"],
+          ["Examples", "示例"],
+          ["Tutorials", "教程"],
+          ["Changelog", "更新日志"],
+          ["Login", "登录"],
+          ["Logout", "退出登录"],
+          ["Loading real robotics content...", "正在加载真实机器人内容..."],
+          ["Sign Out", "退出登录"],
+          ["Sign In", "登录"],
+          ["All", "全部"],
+          ["Code Implementation", "代码实现"],
+          ["Code repositories", "个代码仓库"],
+          ["code repositories", "个代码仓库"],
+          ["Code", "代码"],
+          ["Datasets", "数据集"],
+          ["Models", "模型"],
+          ["AI models", "个 AI 模型"],
+          ["real open-source projects", "个真实开源项目"],
+          ["Loading repository...", "正在加载仓库..."],
+          ["FILES", "文件"],
+          ["File", "文件"],
+          ["Files", "文件"],
+          ["README", "说明"],
+          ["README.md", "说明文档"],
+          ["Dataset", "数据集"],
+          ["Model", "模型"],
+          ["Module", "模块"],
+          ["Architecture", "架构"],
+          ["Publisher", "发布方"],
+          ["Year", "年份"],
+          ["Rows", "行数"],
+          ["Format", "格式"],
+          ["Size", "大小"],
+          ["Usage", "使用方法"],
+          ["Install", "安装"],
+          ["Star", "收藏"],
+          ["Repository", "仓库"],
+          ["Report Issue", "反馈问题"],
+          ["Downloads", "下载量"],
+          ["Users", "用户"],
+          ["Rating", "评分"],
+          ["datasets", "个数据集"],
+          ["ai models", "个 AI 模型"],
+          ["Repository:", "仓库:"],
+          ["No code files found in the repository.", "仓库中未找到代码文件。"],
+          ["## Description", "## 描述"],
+          ["## Type", "## 类型"],
+          ["## Tags", "## 标签"],
+          ["## Author", "## 作者"],
+          ["## Repository", "## 仓库"],
+          ["## About", "## 关于"],
+          ["### How to Use", "### 使用方法"],
+          ["### Citation", "### 引用"],
+          ["1. Visit the repository link above", "1. 访问上面的仓库链接"],
+          ["2. Follow the model/dataset documentation", "2. 按照模型/数据集文档进行操作"],
+          ["3. Install required dependencies", "3. 安装所需依赖"],
+          ["4. Integrate into your robotics project", "4. 集成到你的机器人项目中"],
+          ["Source:", "来源:"],
+          ["Type:", "类型:"],
+          ["Error Loading Content", "加载内容出错"],
+          ["Failed to load content for", "无法加载内容："],
+          ["Error:", "错误:"],
+          ["Type", "类型"],
+          ["Version", "版本"],
+          ["License", "许可证"],
+          ["TAGS", "标签"],
+          ["QUICK LINKS", "快捷链接"],
+          ["Documentation", "文档"],
+          ["Docs", "文档"],
+          ["DOCUMENTATION", "文档"],
+          ["DOCS", "文档"],
+          ["ROF", "基金会"],
+          ["SDK", "开发工具"],
+          ["3D Design", "3D 设计"],
+          ["Log In", "登录"],
+          ["Sign Up", "注册"],
+          ["Technical Documentation", "技术文档"],
+          ["Opanarchy Protocol", "机基协议"],
+          ["A Peer to Peer Protocol for Decentralized Robotics", "去中心化机器人的点对点协议"],
+          ["Author: Opanarchy Foundation", "作者：机基基金会"],
+          ["Repository", "仓库"],
+          ["Report Issue", "反馈问题"],
+          ["Star", "收藏"],
+          ["Install", "安装"],
+          ["Downloads", "下载量"],
+          ["Rating", "评分"],
+          ["Users", "用户"],
+          ["Installation", "安装"],
+          ["Dependencies", "依赖"],
+          ["Related Modules", "相关模块"],
+          ["DATASET INFO", "数据集信息"],
+          ["Size", "大小"],
+          ["Rows", "行数"],
+          ["FORMATS", "格式"],
+          ["MODALITIES", "模态"],
+          ["Text Generation", "文本生成"],
+          ["Question Answering", "问答"],
+          ["Summarization", "摘要"],
+          ["Text", "文本"],
+          ["Tabular", "表格"],
+          ["Like", "点赞"],
+          ["Download", "下载"],
+          ["downloads", "下载量"],
+          ["likes", "点赞"],
+          ["views", "浏览量"],
+          ["Dataset Viewer", "数据集预览"],
+          ["Dataset Card", "数据集卡片"],
+          ["Metadata", "元数据"],
+          ["Citation", "引用"],
+          ["Dataset Preview", "数据预览"],
+          ["Label", "标签"],
+          ["Score", "得分"],
+          ["Dataset Description", "数据集描述"],
+          ["Data Fields", "数据字段"],
+          ["Data Splits", "数据划分"],
+          ["Format", "格式"],
+          ["Parquet, JSON, CSV", "Parquet、JSON、CSV"],
+          ["A state-of-the-art model for advanced AI tasks with exceptional performance on benchmarks.", "面向高级 AI 任务的前沿模型，在多项基准上表现出色。"],
+          ["Parameters", "参数"],
+          ["Updated", "更新时间"],
+          ["TASKS", "任务"],
+          ["TRAINING DATASETS", "训练数据集"],
+          ["Use Model", "使用模型"],
+          ["How to Use", "使用方法"],
+          ["Model Card", "模型卡片"],
+          ["Files and Versions", "文件与版本"],
+          ["Community", "社区"],
+          ["Quick Start", "快速开始"],
+          ["Model Description", "模型描述"],
+          ["Training Details", "训练细节"],
+          ["Training Data: Mix of open-source datasets", "训练数据：开源数据集混合"],
+          ["Training Procedure: Supervised fine-tuning + RLHF", "训练流程：监督微调 + RLHF"],
+          ["Intended Uses", "用途"],
+          ["Conversational AI assistants", "对话式 AI 助手"],
+          ["Content generation", "内容生成"],
+          ["Question answering systems", "问答系统"],
+          ["Code assistance", "代码辅助"],
+          ["Limitations and Biases", "局限与偏见"],
+          ["Community discussions and contributions coming soon.", "社区讨论与贡献即将上线。"],
+          ["Related Models", "相关模型"],
+          ["Model Performance", "模型表现"],
+          ["+23% from last month", "较上月 +23%"],
+          ["Sample text data entry for row ", "示例文本数据（行 "],
+          ["This is example content from the dataset.", "这是来自该数据集的示例内容。"],
+          ["This dataset contains high-quality data for training and evaluation of machine learning models. It has been carefully curated and validated to ensure accuracy and reliability.", "该数据集包含用于训练与评估的高质量数据，经过精心整理与验证，确保准确性与可靠性。"],
+          ["The dataset is split into training, validation, and test sets.", "数据集划分为训练、验证和测试集。"],
+          ["Unique identifier for each entry", "每条记录的唯一标识"],
+          ["The main text content", "主要文本内容"],
+          ["Classification label", "分类标签"],
+          ["Confidence score", "置信度得分"],
+          ["Opanarchy Protocol", "机基协议"],
+          ["OpAnarchy", "机基"],
+          ["Opanarchy", "机基"],
+          ["OpAnarchy Foundation", "机基基金会"],
+          ["Opanarchy Foundation", "机基基金会"],
+          ["A Peer to Peer Protocol for Decentralized Robotics", "去中心化机器人的点对点协议"],
+          ["Author: Opanarchy Foundation", "作者：机基基金会"],
+          ["Abstract", "摘要"],
+          ["Opanarchy proposes a peer to peer, permissionless protocol for the coordination, deployment and governance of humanoid robots.", "Opanarchy 提出一种点对点、无许可协议，用于人形机器人的协调、部署与治理。"],
+          ["By combining open-source hardware, decentralized AI agents and blockchain based coordination, Opanarchy enables communities to build, operate, and own autonomous machines without corporate or state oversight.", "通过结合开源硬件、去中心化 AI 代理与基于区块链的协调机制，Opanarchy 让社区在无需企业或国家监管的情况下构建、运营并拥有自治机器。"],
+          ["This whitepaper outlines the architecture, design principles, incentive structures and governance models for an ecosystem of self-sovereign robots that act transparently, accountably, and without centralized control.", "本白皮书概述了一个自我主权机器人生态的架构、设计原则、激励结构与治理模型，使其透明、可追责且不受中心化控制。"],
+          ["Robotics has reached a pivotal moment.", "机器人技术已经到达关键时刻。"],
+          ["The proliferation of machine learning, computer vision, and affordable hardware has made it feasible to deploy intelligent machines at scale.", "机器学习、计算机视觉与低成本硬件的普及，使大规模部署智能机器成为可能。"],
+          ["Yet the prevailing development paradigm is dangerously centralized.", "然而主流开发范式正危险地走向中心化。"],
+          ["Leading robotics companies are building proprietary humanoid platforms where every component, from firmware to AI logic is closed source, surveilled, and tightly controlled.", "领先的机器人公司正在构建专有的人形平台，从固件到 AI 逻辑的每个组件都闭源、受监控并被严格控制。"],
+          ["The result is a world where the most powerful machines ever built are governed by the few.", "结果是世界上最强大的机器由少数人掌控。"],
+          ["This dynamic mirrors the early financial system that Bitcoin set out to replace.", "这种格局类似比特币要取代的早期金融体系。"],
+          ["Just as Bitcoin redefined digital value exchange without banks, OpAnarchy aims to redefine robotics by removing the need for corporate intermediaries.", "正如比特币在没有银行的情况下重塑了数字价值交换，OpAnarchy 也旨在通过去除企业中介来重塑机器人体系。"],
+          ["Our goal is to build a new class of machines—autonomous, open and verifiable—that anyone can run, fork, or improve.", "我们的目标是构建一类全新机器——自治、开放且可验证，任何人都能运行、分叉或改进。"],
+          ["Opanarchy draws from the principles of decentralization, composability, and public verifiability.", "Opanarchy 借鉴去中心化、可组合与公开可验证原则。"],
+          ["We are building a platform for creating robots that are:", "我们正在构建一个可创建以下类型机器人的平台："],
+          ["Self owned: Robots maintain cryptographic identities and act independently.", "自我所有：机器人保持加密身份并独立行动。"],
+          ["Community governed: Changes to software, hardware or mission logic are governed by DAOs.", "社区治理：软件、硬件或任务逻辑的变更由 DAO 治理。"],
+          ["Permissionless: Anyone can contribute, deploy or operate nodes.", "无许可：任何人都可贡献、部署或运营节点。"],
+          ["Transparent: All firmware, hardware schematics and AI logic are open source.", "透明：所有固件、硬件图纸与 AI 逻辑均开源。"],
+          ["All mechanical design files are hashed and stored on IPFS with references maintained on-chain.", "所有机械设计文件都会哈希并存储在 IPFS，引用记录上链。"],
+          ["Community forks can reject or replace undesirable robot logic", "社区分叉可拒绝或替换不理想的机器人逻辑"],
+          ["Module replacements", "模块替换"],
+          ["Robots perform real-world or simulated tasks verified by on-chain oracles. Examples:", "机器人执行由链上预言机验证的现实或模拟任务。例如："],
+          ["All AI modules are signed and verified before execution. Unsafe behavior modules can be revoked or blacklisted by DAOs.", "所有 AI 模块在执行前都会签名验证；不安全行为模块可被 DAO 撤销或拉黑。"],
+          ["All significant actions (e.g., pick object, unlock door) are recorded and published to on-chain logs, optionally encrypted.", "所有重要动作（如取物、开门）都会记录并发布到链上日志，可选加密。"],
+          ["2. System Overview", "2. 系统概览"],
+          ["OpAnarchy consists of a layered architecture that enables modularity and trustless operation:", "机基由分层架构组成，支持模块化与无信任运行："],
+          ["2.1 Open Hardware Layer", "2.1 开源硬件层"],
+          ["The physical layer includes all mechanical, electronic, and control system components of humanoid robots.", "物理层包含人形机器人的机械、电子与控制系统组件。"],
+          ["OpAnarchy provides:", "OpAnarchy 提供："],
+          ["Open-source CAD files and 3D printable parts", "开源 CAD 文件与可 3D 打印部件"],
+          ["Microcontroller and sensor integration guides", "微控制器与传感器集成指南"],
+          ["Power efficient locomotion and balance mechanisms", "高能效的运动与平衡机制"],
+          ["These designs are licensed under MIT or CERN OHL v2 licenses and can be forked, modified, or mass produced by any community.", "这些设计采用 MIT 或 CERN OHL v2 许可，任何社区都可分叉、修改或量产。"],
+          ["All mechanical design files are hashed and stored on IPFS with references maintained on-chain.", "所有机械设计文件都会哈希并存储在 IPFS，引用记录上链。"],
+          ["2.2 Software and AI Agent Layer", "2.2 软件与 AI 代理层"],
+          ["Robots run modular firmware and AI agents that control locomotion, manipulation, perception, and language.", "机器人运行模块化固件与 AI 代理，控制运动、操作、感知与语言。"],
+          ["Key modules include:", "关键模块包括："],
+          ["Real time firmware for low level motor control (e.g., walking, grasping)", "用于底层电机控制的实时固件（如行走、抓取）"],
+          ["Perception stack for environment mapping, object recognition, SLAM", "用于环境建图、目标识别、SLAM 的感知栈"],
+          ["Agentic AI layer for task planning, dialogue, and decision making", "用于任务规划、对话与决策的智能代理层"],
+          ["Safety module for constraint enforcement and override systems", "用于约束执行与覆盖机制的安全模块"],
+          ["These agents can operate fully locally or leverage decentralized compute platforms (e.g., Gensyn, Bittensor) for larger inference models.", "这些代理可完全本地运行，或借助去中心化计算平台（如 Gensyn、Bittensor）进行大模型推理。"],
+          ["Every module has a signed version history and published audit trail.", "每个模块都有签名版本历史与公开审计记录。"],
+          ["2.3 OnChain Protocol Layer", "2.3 链上协议层"],
+          ["The blockchain layer is built on Solana, providing:", "区块链层基于 Solana，提供："],
+          ["Wallet-based identity for every robot", "每个机器人的钱包身份"],
+          ["DAO smart contracts for community governance", "用于社区治理的 DAO 智能合约"],
+          ["Task registry for assigning and verifying robot actions", "用于分配与验证机器人行为的任务登记"],
+          ["Data oracles for robot sensor inputs and logs", "用于机器人传感输入与日志的数据预言机"],
+          ["Each robot is a wallet-enabled actor.", "每个机器人都是具备钱包的行为主体。"],
+          ["Logs of movement, interactions, and upgrades are recorded in signed data bundles and submitted periodically to the chain, enabling full traceability and accountability.", "动作、交互与升级日志会打包签名并周期性上链，实现完整可追踪与可问责。"],
+          ["3. Nodes and Identity", "3. 节点与身份"],
+          ["Each OpAnarchy robot is a peer node with:", "每个机基机器人都是具备以下特征的对等节点："],
+          ["A Solana wallet used for staking, upgrades, and voting", "用于质押、升级与投票的 Solana 钱包"],
+          ["A digital fingerprint (hash of hardware config and firmware stack)", "数字指纹（硬件配置与固件栈哈希）"],
+          ["Behavior policy signature, opt-in logic constraints", "行为策略签名与可选逻辑约束"],
+          ["These nodes interact with others in a decentralized mesh, forming swarms, delegating tasks, or participating in economic actions.", "这些节点在去中心化网络中交互，可形成群体、委派任务或参与经济行为。"],
+          ["Robots may self-host small LLMs and reactive AI systems.", "机器人可自托管小型 LLM 与反应式 AI 系统。"],
+          ["They can verify and attest their model versions, ensuring they remain tamper-proof.", "它们可验证并证明模型版本，确保不可篡改。"],
+          ["Peer robots can verify each other's logs, upgrades, and behavior outputs.", "对等机器人可相互验证日志、升级与行为输出。"],
+          ["This approach allows OpAnarchy to treat each machine as an autonomous digital citizen—capable of action, governance, and financial participation.", "该方法使 OpAnarchy 将每台机器视为自治的数字公民——具备行动、治理与金融参与能力。"],
+          ["4. Governance and Consensus", "4. 治理与共识"],
+          ["OpAnarchy does not rely on block consensus (handled by Solana). Instead, we introduce Action Consensus:", "机基不依赖区块共识（由 Solana 处理），我们引入行为共识："],
+          ["Behavior proposals are submitted by robot agents or human developers", "行为提案由机器人代理或人类开发者提交"],
+          ["DAOs vote on approved action modules (e.g., upgrade movement behavior)", "DAO 对通过的行动模块投票（如升级运动行为）"],
+          ["Community forks can reject or replace undesirable robot logic", "社区分叉可拒绝或替换不理想的机器人逻辑"],
+          ["Each robot is tied to a governance DAO. This may be:", "每个机器人都绑定一个治理 DAO，可能为："],
+          ["Global DAO for protocol-wide upgrades", "用于协议级升级的全局 DAO"],
+          ["Local swarm DAO for city or factory coordination", "用于城市或工厂协作的本地群体 DAO"],
+          ["Solo operator DAO for private deployments", "用于私有部署的个人运营 DAO"],
+          ["$OPAN token holders vote on:", "机基代币持有者投票决定："],
+          ["Firmware upgrades", "固件升级"],
+          ["Module replacements", "模块替换"],
+          ["Reward distributions", "奖励分配"],
+          ["Policy changes", "策略变更"],
+          ["By distributing authority across token-weighted votes, the ecosystem avoids centralized control and allows communities to shape robot behavior.", "通过代币加权投票分配权力，生态避免中心化控制，并让社区塑造机器人行为。"],
+          ["5. Incentive Model", "5. 激励模型"],
+          ["A core innovation of OpAnarchy is the introduction of productive robots in crypto ecosystems.", "OpAnarchy 的核心创新是将生产型机器人引入加密生态。"],
+          ["Key incentives include:", "关键激励包括："],
+          ["5.1 Task Rewards", "5.1 任务奖励"],
+          ["Robots perform real-world or simulated tasks verified by on-chain oracles. Examples:", "机器人执行由链上预言机验证的现实或模拟任务。例如："],
+          ["Door opening challenge", "开门挑战"],
+          ["Package delivery task", "包裹配送任务"],
+          ["Movement replication or mimicry", "动作复现或模仿"],
+          ["Each completed task submits:", "每个完成的任务会提交："],
+          ["Action proof (camera + motor log)", "行动证明（摄像头 + 电机日志）"],
+          ["Timestamp and signature", "时间戳与签名"],
+          ["Stake for task fraud defense", "用于防欺诈的质押"],
+          ["Successful submissions are rewarded in $OPNX tokens.", "成功提交将获得机基代币奖励。"],
+          ["5.2 Contribution Bounties", "5.2 贡献赏金"],
+          ["Developers can submit firmware modules, sensors, or AI agents.", "开发者可提交固件模块、传感器或 AI 代理。"],
+          ["Through DAO proposals, they earn $OPAN and reputation points.", "通过 DAO 提案可获得 $OPAN 与声誉积分。"],
+          ["5.3 Hardware Contributors", "5.3 硬件贡献者"],
+          ["Makers who ship kits, build verified hardware nodes, or provide public data can earn retroactive grants via governance.", "提供套件、构建认证硬件节点或提供公共数据的制作者可通过治理获得追溯性资助。"],
+          ["This system mirrors crypto mining but rewards real-world work: code, design, motion.", "该系统类似加密挖矿，但奖励现实工作：代码、设计与动作。"],
+          ["6. Security and Safety", "6. 安全与保障"],
+          ["Robots must be secure, predictable, and auditable.", "机器人必须安全、可预测且可审计。"],
+          ["Our model includes:", "我们的模型包括："],
+          ["6.1 Signed Model Verification", "6.1 签名模型验证"],
+          ["All AI modules are signed and verified before execution. Unsafe behavior modules can be revoked or blacklisted by DAOs.", "所有 AI 模块在执行前都会签名验证；不安全行为模块可被 DAO 撤销或拉黑。"],
+          ["6.2 Hardware Checkpoints", "6.2 硬件检查点"],
+          ["Robots must regularly submit signed status reports:", "机器人必须定期提交签名状态报告："],
+          ["Power draw", "功耗"],
+          ["Motor response latency", "电机响应延迟"],
+          ["Balance and thermal stats", "平衡与温度状态"],
+          ["6.3 Audit Logs", "6.3 审计日志"],
+          ["All significant actions (e.g., pick object, unlock door) are recorded and published to on-chain logs, optionally encrypted.", "所有重要动作（如取物、开门）都会记录并发布到链上日志，可选加密。"],
+          ["6.4 Governance Safety Layer", "6.4 治理安全层"],
+          ["A final \"kill switch\" is encoded in the base layer—allowing communities to override robot actions when thresholds are breached.", "基础层内置最终“熔断开关”，当阈值被突破时允许社区覆盖机器人行为。"],
+          ["7. Scalability and Interoperability", "7. 可扩展性与互操作性"],
+          ["Opanarchy is natively built for interoperability:", "机基原生支持互操作："],
+          ["Solana-based for fast, low-cost settlement", "基于 Solana，实现快速低成本结算"],
+          ["IPFS integration for robot blueprints, logs, and AI binaries", "集成 IPFS 用于机器人蓝图、日志与 AI 二进制文件"],
+          ["dApp SDK for integration with other DePIN projects", "提供 dApp SDK 以对接其他 DePIN 项目"],
+          ["Hardware bridge libraries for Arduino, Jetson, and Raspberry Pi", "提供 Arduino、Jetson、Raspberry Pi 的硬件桥接库"],
+          ["We envision robots operating across multiple DAOs, physical spaces, and applications—from smart cities to private labs.", "我们设想机器人可跨多个 DAO、物理空间与应用运行——从智慧城市到私人实验室。"],
+          ["The open architecture allows others to fork and remix the system for education, industry, and art.", "开放架构允许他人用于教育、工业与艺术进行分叉与再创。"],
+          ["8. Use Cases", "8. 应用场景"],
+          ["8.1 Decentralized Labor Agents", "8.1 去中心化劳动力代理"],
+          ["Humanoid robots perform physical tasks like delivering packages, guarding spaces, or aiding disabled individuals—earning tokens directly.", "人形机器人执行包裹配送、空间安保或辅助残障人士等任务，直接获得代币奖励。"],
+          ["8.2 DAO-Controlled Public Robots", "8.2 DAO 控制的公共机器人"],
+          ["Museums, libraries, or event spaces can deploy robots governed by community DAOs, allowing for democratic programming.", "博物馆、图书馆或活动空间可部署由社区 DAO 治理的机器人，实现民主化编程。"],
+          ["8.3 Education and Research", "8.3 教育与研究"],
+          ["Schools and hobbyists can use robot kits to explore robotics, AI safety, crypto governance, and distributed computing.", "学校与爱好者可使用机器人套件探索机器人技术、AI 安全、加密治理与分布式计算。"],
+          ["8.4 Autonomous Advocacy Bots", "8.4 自治倡议机器人"],
+          ["Robots can protest, speak, or campaign as self-owned entities—bypassing censorship.", "机器人可作为自我拥有的实体进行抗议、演讲或倡议，绕过审查。"],
+          ["9. Roadmap", "9. 路线图"],
+          ["Q3–Q4 2025", "2025 年 Q3–Q4"],
+          ["Robotic prototype showcase", "机器人原型展示"],
+          ["Achieving core mechanical motion, servo control, and onchain interaction", "实现核心机械运动、伺服控制与链上交互"],
+          ["Robotics marketplace launch", "机器人市场上线"],
+          ["2026–2027", "2026–2027"],
+          ["Federated learning model rollout", "联邦学习模型发布"],
+          ["Swarm coordination protocol for >100 robots", "支持 100+ 机器人的群体协作协议"],
+          ["Integration with decentralized compute (e.g., Gensyn)", "集成去中心化计算（如 Gensyn）"],
+          ["Public robot-as-a-service API and SDK", "公共机器人即服务 API 与 SDK"],
+          ["10. Conclusion", "10. 结论"],
+          ["Opanarchy is more than a robotics project.", "机基不只是一个机器人项目。"],
+          ["It's a movement to reclaim physical autonomy in the digital age.", "它是在数字时代夺回物理自主权的运动。"],
+          ["Just as Bitcoin offered sovereignty over money, Opanarchy offers sovereignty over machines.", "正如比特币提供货币主权，机基提供机器主权。"],
+          ["It is a permissionless robotics infrastructure that anyone can run, verify and own.", "这是一种无许可的机器人基础设施，任何人都可运行、验证并拥有。"],
+          ["In a future where automation is inevitable, Opanarchy ensures that freedom is optional.", "在自动化不可避免的未来，Opanarchy 确保自由仍是可选项。"]
+        ];
+
+        const regexReplacements = [
+          {
+            pattern: /\$OPAN\b/g,
+            replace: "机基"
+          },
+          {
+            pattern: /\$OPNX\b/g,
+            replace: "机基"
+          },
+          {
+            pattern: /by\s+([^•\n]+)\s*•\s*v([0-9A-Za-z.\-]+)/g,
+            replace: "作者 $1 • 版本 $2"
+          },
+          {
+            pattern: /by\s+([^\n]+)/g,
+            replace: "作者 $1"
+          },
+          {
+            pattern: /This is a (.+?) from Hugging Face for robotics applications\./g,
+            replace: "这是来自 Hugging Face 的 $1，用于机器人应用。"
+          },
+          {
+            pattern: /If you use this (.+?) in your research, please cite the original authors\./g,
+            replace: "如果你在研究中使用该 $1，请引用原作者。"
+          },
+          {
+            pattern: /This model is designed for research and commercial applications including:/g,
+            replace: "该模型面向研究与商业应用，适用于："
+          },
+          {
+            pattern: /This model is a fine-tuned version of the base architecture, optimized for instruction following and conversational AI tasks\. It has been trained on a diverse dataset of high-quality human demonstrations and feedback\./g,
+            replace: "该模型是在基础架构上微调而来，针对指令跟随和对话式 AI 任务优化，使用高质量人类示范与反馈的多样化数据集进行训练。"
+          },
+          {
+            pattern: /Like all language models, this model may exhibit biases present in its training data and should be used responsibly with appropriate safeguards\./g,
+            replace: "与所有语言模型一样，该模型可能包含训练数据中的偏见，使用时需采取适当的安全措施。"
+          }
+        ];
+
+        const skipTags = new Set(["SCRIPT", "STYLE", "CODE", "PRE", "TEXTAREA"]);
+        const TOKEN_CA = "soon";
+        const CA_BUTTON_ID = "nav-token-ca-btn";
+        const injectTokenCAButton = () => {
+          if (document.getElementById(CA_BUTTON_ID)) return;
+          const main = document.querySelector("main");
+          if (!main) return;
+          const header = main.previousElementSibling;
+          if (!header || !header.querySelector) return;
+          let registerEl = null;
+          const findRegister = (el) => {
+            if (!el || el.id === CA_BUTTON_ID) return;
+            if ((el.textContent || "").trim() === "注册" || (el.textContent || "").trim() === "Sign Up") {
+              registerEl = el;
+              return;
+            }
+            for (let i = 0; i < (el.children || []).length; i++) findRegister(el.children[i]);
+          };
+          findRegister(header);
+          const wrap = registerEl ? (registerEl.parentElement || header) : header;
+          const ref = registerEl ? registerEl.nextElementSibling : null;
+          const copyIcon = '<svg class="nav-ca-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>';
+          const checkIcon = '<svg class="nav-ca-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.id = CA_BUTTON_ID;
+          btn.setAttribute("aria-label", "复制代币合约地址");
+          btn.innerHTML = copyIcon + "<span>代币 CA</span>";
+          btn.onclick = () => {
+            navigator.clipboard.writeText(TOKEN_CA).then(() => {
+              btn.innerHTML = checkIcon + "<span>已复制!</span>";
+              btn.disabled = true;
+              setTimeout(function () {
+                btn.innerHTML = copyIcon + "<span>代币 CA</span>";
+                btn.disabled = false;
+              }, 2000);
+            });
+          };
+          if (ref) wrap.insertBefore(btn, ref);
+          else if (registerEl) wrap.insertBefore(btn, registerEl.nextSibling);
+          else wrap.appendChild(btn);
+        };
+        const docsHtml = `
+<div class="paper-doc">
+  <h1>机基协议 (JiJi Protocol)</h1>
+  <p>去中心化机器人技术的点对点协议</p>
+  <p>作者：机基基金会</p>
+
+  <h2>摘要</h2>
+  <p>机基提出了一种点对点、无需许可的协议，用于人形机器人的协作、部署和治理。通过结合开源硬件、去中心化 AI 智能体（Agents）和基于区块链的协作，机基使社区能够在没有公司或国家监管的情况下构建、运营和拥有自主机器。本白皮书概述了建立一个自主主权机器人生态系统的架构、设计原则、激励结构和治理模型，这些机器人将透明、负责且不受中心化控制地行动。</p>
+
+  <h2>1. 引言</h2>
+  <p>机器人技术正处于一个关键时刻。机器学习、计算机视觉和廉价硬件的普及使得大规模部署智能机器成为可能。然而，当前的主流开发范式极其中心化。领先的机器人公司正在构建专有的人形平台，从固件到 AI 逻辑的每个组件都是闭源、受监控且被严密控制的。结果是，世界上最强大的机器将由极少数人掌控。</p>
+  <p>这种动态与比特币试图取代的早期金融系统如出一辙。正如比特币在没有银行的情况下重新定义了数字价值交换，机基旨在通过消除企业中介来重新定义机器人技术。我们的目标是构建一类新型机器——自主、开放且可验证——任何人都可以运行、分叉或改进。</p>
+  <p>机基汲取了去中心化、可组合性和公共可验证性的原则。我们要构建的平台所创造的机器人具备以下特征：</p>
+  <ul>
+    <li>自主拥有 (Self owned)：机器人维护加密身份并独立行动。</li>
+    <li>社区治理 (Community governed)：软件、硬件或任务逻辑的更改由 DAO（去中心化自治组织）管理。</li>
+    <li>无需许可 (Permissionless)：任何人都可以贡献、部署或运行节点。</li>
+    <li>透明 (Transparent)：所有固件、硬件原理图和 AI 逻辑均为开源。</li>
+  </ul>
+
+  <h2>2. 系统概览</h2>
+  <p>机基由分层架构组成，以实现模块化和去信任化操作：</p>
+  <h3>2.1 开放硬件层</h3>
+  <p>物理层包括人形机器人的所有机械、电子和控制系统组件。机基提供：</p>
+  <ul>
+    <li>开源 CAD 文件和 3D 可打印部件</li>
+    <li>微控制器和传感器集成指南</li>
+    <li>高能效的运动和平衡机制</li>
+  </ul>
+  <p>这些设计采用 MIT 或 CERN OHL v2 许可证，任何社区都可以分叉、修改或批量生产。所有机械设计文件都经过哈希处理并存储在 IPFS 上，且在链上保留引用。</p>
+  <h3>2.2 软件与 AI 智能体层</h3>
+  <p>机器人运行模块化的固件和 AI 智能体，控制运动、操作、感知和语言。关键模块包括：</p>
+  <ul>
+    <li>实时固件：用于底层电机控制（如行走、抓取）。</li>
+    <li>感知堆栈：用于环境测绘、物体识别、SLAM（即时定位与地图构建）。</li>
+    <li>代理式 AI 层 (Agentic AI layer)：用于任务规划、对话和决策。</li>
+    <li>安全模块：用于约束执行和覆盖系统。</li>
+  </ul>
+  <p>这些智能体完全可以在本地运行，也可以利用去中心化算力平台（如 Gensyn、Bittensor）运行更大的推理模型。每个模块都有签名的版本历史和公开的审计踪迹。</p>
+  <h3>2.3 链上协议层</h3>
+  <p>区块链层建立在 Solana 之上，提供：</p>
+  <ul>
+    <li>基于钱包的每个机器人身份</li>
+    <li>用于社区治理的 DAO 智能合约</li>
+    <li>用于分配和验证机器人行为的任务注册表</li>
+    <li>用于机器人传感器输入和日志的数据预言机</li>
+  </ul>
+  <p>每个机器人都是一个启用钱包的参与者。运动、交互和升级的日志被记录在签名的数据包中，并定期提交到链上，从而实现完全的可追溯性和问责制。</p>
+
+  <h2>3. 节点与身份</h2>
+  <p>每个机基机器人都是一个对等节点（Peer Node），拥有：</p>
+  <ul>
+    <li>一个用于质押、升级和投票的 bsc 钱包</li>
+    <li>一个数字指纹（硬件配置和固件堆栈的哈希值）</li>
+    <li>行为策略签名，以及选择性加入的逻辑约束</li>
+  </ul>
+  <p>这些节点在去中心化网状网络中与其他节点交互，形成蜂群（Swarms）、委派任务或参与经济活动。</p>
+  <p>机器人可以自托管小型 LLM（大语言模型）和反应式 AI 系统。它们可以验证并证明其模型版本，确保其防篡改。对等机器人可以相互验证日志、升级和行为输出。</p>
+  <p>这种方法允许机基将每台机器视为一个自主的数字公民——有能力采取行动、参与治理和进行金融活动。</p>
+
+  <h2>4. 治理与共识</h2>
+  <p>机基不依赖区块共识（由 Solana 处理）。相反，我们引入了行为共识 (Action Consensus)：</p>
+  <ul>
+    <li>行为提案由机器人智能体或人类开发者提交。</li>
+    <li>DAO 对批准的行为模块（例如：升级运动行为）进行投票。</li>
+    <li>社区分叉可以拒绝或替换不受欢迎的机器人逻辑。</li>
+  </ul>
+  <p>每个机器人绑定到一个治理 DAO。这可能是：</p>
+  <ul>
+    <li>全球 DAO：负责协议范围的升级。</li>
+    <li>本地蜂群 DAO：负责城市或工厂的协调。</li>
+    <li>个人运营商 DAO：用于私人部署。</li>
+  </ul>
+  <p>$机基 代币持有者 对以下事项进行投票：</p>
+  <ul>
+    <li>固件升级</li>
+    <li>模块替换</li>
+    <li>奖励分配</li>
+    <li>策略变更</li>
+  </ul>
+  <p>通过将权力分配给代币加权的投票，生态系统避免了中心化控制，并允许社区塑造机器人的行为。</p>
+
+  <h2>5. 激励模型</h2>
+  <p>机基的核心创新之一是将生产性机器人引入加密生态系统。主要激励措施包括：</p>
+  <h3>5.1 任务奖励</h3>
+  <p>机器人执行由链上预言机验证的现实世界或模拟任务。例如：</p>
+  <ul>
+    <li>开门挑战</li>
+    <li>包裹递送任务</li>
+    <li>动作复制或模仿</li>
+  </ul>
+  <p>每个完成的任务需提交：</p>
+  <ul>
+    <li>行为证明（摄像头 + 电机日志）</li>
+    <li>时间戳和签名</li>
+    <li>用于任务欺诈防御的质押金</li>
+  </ul>
+  <p>成功的提交将获得 $机基 代币奖励。</p>
+  <h3>5.2 贡献赏金</h3>
+  <p>开发者可以提交固件模块、传感器或 AI 智能体。通过 DAO 提案，他们可以获得 $机基 和声誉积分。</p>
+  <h3>5.3 硬件贡献者</h3>
+  <p>发布套件、构建经过验证的硬件节点或提供公共数据的创客（Makers），可以通过治理获得追溯性资助。</p>
+  <p>该系统类似于加密货币挖矿，但奖励的是现实世界的工作：代码、设计和运动。</p>
+
+  <h2>6. 安全与保障</h2>
+  <p>机器人必须是安全、可预测且可审计的。我们的模型包括：</p>
+  <h3>6.1 签名模型验证</h3>
+  <p>所有 AI 模块在执行前都必须经过签名和验证。不安全的行为模块可以被 DAO 撤销或列入黑名单。</p>
+  <h3>6.2 硬件检查点</h3>
+  <p>机器人必须定期提交签名的状态报告：</p>
+  <ul>
+    <li>功耗</li>
+    <li>电机响应延迟</li>
+    <li>平衡和热统计数据</li>
+  </ul>
+  <h3>6.3 审计日志</h3>
+  <p>所有重要动作（如拾取物体、解锁门）都会被记录并发布到链上日志中，可选择加密。</p>
+  <h3>6.4 治理安全层</h3>
+  <p>基础层编码了一个最终的“终止开关”——允许社区在突破阈值时覆盖机器人的行动。</p>
+
+  <h2>7. 可扩展性与互操作性</h2>
+  <p>机基生来就是为了互操作性而构建的：</p>
+  <ul>
+    <li>基于 Solana 以实现快速、低成本的结算</li>
+    <li>集成 IPFS 用于存储机器人蓝图、日志和 AI 二进制文件</li>
+    <li>提供 dApp SDK 以与其他 DePIN 项目集成</li>
+    <li>提供适用于 Arduino、Jetson 和 Raspberry Pi 的硬件桥接库</li>
+  </ul>
+  <p>我们设想机器人能够在多个 DAO、物理空间和应用程序中运行——从智慧城市到私人实验室。这种开放架构允许其他人为了教育、工业和艺术目的分叉和重新混合该系统。</p>
+
+  <h2>8. 用例</h2>
+  <h3>8.1 去中心化劳动力智能体</h3>
+  <p>人形机器人执行物理任务，如运送包裹、守卫空间或帮助残障人士——并直接赚取代币。</p>
+  <h3>8.2 DAO 控制的公共机器人</h3>
+  <p>博物馆、图书馆或活动空间可以部署由社区 DAO 管理的机器人，允许民主化的编程控制。</p>
+  <h3>8.3 教育与研究</h3>
+  <p>学校和业余爱好者可以使用机器人套件来探索机器人技术、AI 安全、加密治理和分布式计算。</p>
+  <h3>8.4 自主倡导机器人</h3>
+  <p>机器人可以作为拥有自我主权的实体进行抗议、演讲或竞选——从而绕过审查。</p>
+
+  <h2>9. 结论</h2>
+  <p>机基不仅仅是一个机器人项目。它是一场在数字时代重夺物理自主权的运动。正如比特币提供了对金钱的主权，机基提供了对机器的主权。它是一个无需许可的机器人基础设施，任何人都可以运行、验证和拥有。</p>
+  <p>在一个自动化不可避免的未来，机基确保了自由是一种可选项。</p>
+</div>
+        `;
+
+        const applyReplacements = (text) => {
+          let result = text;
+          for (const [from, to] of replacements) {
+            if (result.includes(from)) {
+              result = result.split(from).join(to);
+            }
+          }
+          for (const { pattern, replace } of regexReplacements) {
+            result = result.replace(pattern, replace);
+          }
+          return result;
+        };
+
+        const processTextNode = (node) => {
+          if (!node || !node.nodeValue) return;
+          const original = node.nodeValue;
+          const updated = applyReplacements(original);
+          if (updated !== original) {
+            node.nodeValue = updated;
+          }
+        };
+
+        const replaceDocsContent = () => {
+          const main = document.querySelector("main");
+          if (!main) return;
+          const text = main.textContent || "";
+          const isDocsRoute = /docs/i.test(window.location.pathname) ||
+            text.includes("Opanarchy") ||
+            text.includes("Abstract") ||
+            text.includes("Technical Documentation");
+          if (!isDocsRoute) return;
+
+          const proseContainer = main.querySelector('[class*="prose"]');
+          const target = proseContainer || main;
+          if (!target.innerHTML.includes("JiJi Protocol")) {
+            target.innerHTML = docsHtml;
+          }
+        };
+
+        const processElementAttributes = (element) => {
+          const attrs = ["placeholder", "title", "aria-label", "aria-placeholder"];
+          for (const attr of attrs) {
+            if (element.hasAttribute && element.hasAttribute(attr)) {
+              const original = element.getAttribute(attr);
+              if (original) {
+                const updated = applyReplacements(original);
+                if (updated !== original) {
+                  element.setAttribute(attr, updated);
+                }
+              }
+            }
+          }
+        };
+
+        const processTree = (root) => {
+          const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null);
+          let node = walker.nextNode();
+          while (node) {
+            const parent = node.parentElement;
+            if (!parent || !skipTags.has(parent.tagName)) {
+              processTextNode(node);
+            }
+            node = walker.nextNode();
+          }
+
+          const elements = root.querySelectorAll ? root.querySelectorAll("*") : [];
+          for (const el of elements) {
+            if (!skipTags.has(el.tagName)) {
+              processElementAttributes(el);
+            }
+          }
+        };
+
+        const start = () => {
+          replaceDocsContent();
+          injectTokenCAButton();
+          window.setTimeout(replaceDocsContent, 200);
+          window.setTimeout(replaceDocsContent, 1000);
+          window.setTimeout(injectTokenCAButton, 300);
+          window.setTimeout(injectTokenCAButton, 1500);
+          processTree(document.body);
+          const observer = new MutationObserver((mutations) => {
+            for (const mutation of mutations) {
+              if (mutation.type === "characterData") {
+                processTextNode(mutation.target);
+              } else if (mutation.type === "childList") {
+                mutation.addedNodes.forEach((node) => {
+                  if (node.nodeType === Node.TEXT_NODE) {
+                    processTextNode(node);
+                  } else if (node.nodeType === Node.ELEMENT_NODE && !skipTags.has(node.tagName)) {
+                    processElementAttributes(node);
+                    processTree(node);
+                  }
+                });
+              }
+            }
+            replaceDocsContent();
+            injectTokenCAButton();
+          });
+          observer.observe(document.body, { childList: true, subtree: true, characterData: true });
+        };
+
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", start);
+        } else {
+          start();
+        }
+      })();
+    </script>
+  </body>
+</html>
